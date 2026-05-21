@@ -10,7 +10,7 @@
       --bg: #faf9f6;
       --cal-bg: #ffffff;
       --accent-green: #4F7942;
-      --text-main: #1a1a1a; /* Black text for Light Mode */
+      --text-main: #1a1a1a;
       --text-dim: #999;
       --border-dark: #dddddd;
       --hover-bg: #f5f5f5;
@@ -19,7 +19,7 @@
     [data-theme="dark"] {
       --bg: #121212;
       --cal-bg: #1e1e1e;
-      --text-main: #f0f0f0; /* White text for Dark Mode */
+      --text-main: #f0f0f0;
       --text-dim: #777;
       --border-dark: #444;
       --hover-bg: #2a2a2a;
@@ -79,6 +79,12 @@
       font-size: 14px;
     }
 
+    /* Shifting the front button to the left side */
+    .flip-btn-left {
+      left: 8px;
+      right: auto;
+    }
+
     .friend-label-front {
       font-size: 8px;
       text-transform: uppercase;
@@ -115,7 +121,7 @@
       margin-bottom: 0.5rem;
       line-height: 1;
       font-variant-numeric: tabular-nums;
-      color: var(--text-main); /* Explicitly using the variable */
+      color: var(--text-main);
     }
 
     .theme-toggle {
@@ -131,7 +137,6 @@
       transition: all 0.2s ease;
     }
 
-    /* Back Page Search Styles */
     .search-group { width: 100%; margin-bottom: 6px; }
     
     .section-title { 
@@ -157,8 +162,9 @@
 <body>
 
 <div class="clock-container" id="card-container">
+  <!-- Front Card -->
   <div class="clock-card">
-    <button class="flip-btn" onclick="toggleFlip()">→</button>
+    <button class="flip-btn flip-btn-left" onclick="toggleFlip()">←</button>
     <div class="date-row">
       <span class="month-serif" id="month">--</span>
       <span class="day-year-sans" id="day-year">--</span>
@@ -168,8 +174,9 @@
     <button class="theme-toggle" id="theme-btn">Switch Mode</button>
   </div>
 
+  <!-- Back Card -->
   <div class="clock-card clock-card-back">
-    <button class="flip-btn" onclick="toggleFlip()">←</button>
+    <button class="flip-btn" onclick="toggleFlip()">→</button>
     <div class="search-group">
       <div class="section-title">Friends Time</div>
       <input list="friends-options" id="friend-search" class="search-bar" placeholder="Select friend...">
